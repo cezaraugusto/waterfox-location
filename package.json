@@ -5,7 +5,7 @@
     "url": "https://github.com/cezaraugusto/waterfox-location.git"
   },
   "name": "waterfox-location",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Approximates the current location of the Waterfox browser across platforms.",
   "homepage": "https://www.npmjs.com/package/waterfox-location",
   "type": "module",
