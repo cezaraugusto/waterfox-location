@@ -123,6 +123,11 @@ Returns the first existing path found (given selected channels), or <code>null</
 
 ```js
 import waterfoxLocation from "waterfox-location";
+import {
+  locateWaterfoxOrExplain,
+  getInstallGuidance,
+  getWaterfoxVersion
+} from "waterfox-location";
 
 // Strict (Stable only)
 console.log(waterfoxLocation());
@@ -131,6 +136,21 @@ console.log(waterfoxLocation());
 // Enable fallback (Stable / Current / Classic)
 console.log(waterfoxLocation(true));
 // => first found among Stable/Current/Classic or null
+
+// Throw with a friendly guide when not found
+try {
+  const bin = locateWaterfoxOrExplain({allowFallback: true});
+  console.log(bin);
+
+  // Cross-platform version (no exec by default)
+  console.log(getWaterfoxVersion(bin)); // e.g. "6.5.3" or null
+
+  // Opt-in: allow executing the binary (Linux/other)
+  console.log(getWaterfoxVersion(bin, {allowExec: true}));
+} catch (e) {
+  console.error(String(e));
+  // Or print getInstallGuidance() explicitly
+}
 ```
 
 **Via CLI:**
@@ -141,7 +161,30 @@ npx waterfox-location
 
 npx waterfox-location --fallback
 # Enable cascade (Stable / Current / Classic)
+
+# Respect environment overrides
+WATERFOX_BINARY=/custom/path/to/waterfox npx waterfox-location
+
+# Print browser version (empty + exit code 2 if unavailable)
+npx waterfox-location --waterfox-version
+npx waterfox-location --browser-version
+
+# Opt-in: allow executing the binary to fetch version
+npx waterfox-location --browser-version --allow-exec
 ```
+
+### Environment overrides
+
+If this environment variable is set and points to an existing binary, it takes precedence:
+
+- `WATERFOX_BINARY`
+
+## API
+
+- `default export locateWaterfox(allowFallback?: boolean): string | null`
+- `locateWaterfoxOrExplain(options?: boolean | { allowFallback?: boolean }): string`
+- `getWaterfoxVersion(bin: string, opts?: { allowExec?: boolean }): string | null`
+- `getInstallGuidance(): string`
 
 ## Related projects
 
@@ -151,7 +194,7 @@ npx waterfox-location --fallback
 * [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
 * [opera-location2](https://github.com/cezaraugusto/opera-location2)
 * [vivaldi-location2](https://github.com/cezaraugusto/vivaldi-location2)
-* [yandex-location](https://github.com/cezaraugusto/yandex-location2)
+* [yandex-location](https://github.com/cezaraugusto/yandex-location)
 * [librewolf-location](https://github.com/cezaraugusto/librewolf-location)
 
 ## License
