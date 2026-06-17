@@ -1,4 +1,4 @@
-[npm-version-image]: https://img.shields.io/npm/v/waterfox-location.svg?color=00a2ff
+[npm-version-image]: https://img.shields.io/npm/v/waterfox-location.svg?color=0971fe
 [npm-version-url]: https://www.npmjs.com/package/waterfox-location
 [npm-downloads-image]: https://img.shields.io/npm/dm/waterfox-location.svg?color=2ecc40
 [npm-downloads-url]: https://www.npmjs.com/package/waterfox-location
