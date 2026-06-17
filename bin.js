@@ -1,9 +1,8 @@
-#!/usr/bin/env node
 
 const locateWaterfox =
-  require('./dist/index.cjs').default || require('./dist/index.cjs');
+  require('./dist/index.cjs').default || require('./dist/index.cjs')
 
-const argv = process.argv.slice(2);
-const allowFallback = argv.includes('--fallback') || argv.includes('-f');
+const argv = process.argv.slice(2)
+const allowFallback = argv.includes('--fallback') || argv.includes('-f')
 
-console.log(locateWaterfox(allowFallback));
+console.log(locateWaterfox(allowFallback))
