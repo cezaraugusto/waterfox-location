@@ -11,9 +11,15 @@
 
 <img alt="Waterfox" align="right" src="https://cdn.jsdelivr.net/gh/extension-js/media@9ef31f005a0192907d9f6405838e43776aca2124/browser_logos/png/waterfox.png" width="10.5%" />
 
-* By default checks only `stable`. Optionally can cascade to `current` / `classic`.
-* Supports macOS / Windows / Linux
-* Works both as an ES module or CommonJS
+- By default checks only `stable`. Optionally can cascade to `current` / `classic`.
+- Supports macOS / Windows / Linux
+- Works both as an ES module or CommonJS
+
+## Installation
+
+```bash
+npm i waterfox-location
+```
 
 ## Support table
 
@@ -122,35 +128,42 @@ Returns the first existing path found (given selected channels), or <code>null</
 **Via Node.js (strict by default):**
 
 ```js
-import waterfoxLocation from "waterfox-location";
+import waterfoxLocation from 'waterfox-location'
 import {
   locateWaterfoxOrExplain,
   getInstallGuidance,
   getWaterfoxVersion
-} from "waterfox-location";
+} from 'waterfox-location'
 
 // Strict (Stable only)
-console.log(waterfoxLocation());
+console.log(waterfoxLocation())
 // => "/Applications/Waterfox.app/Contents/MacOS/waterfox" or null
 
 // Enable fallback (Stable / Current / Classic)
-console.log(waterfoxLocation(true));
+console.log(waterfoxLocation(true))
 // => first found among Stable/Current/Classic or null
 
 // Throw with a friendly guide when not found
 try {
-  const bin = locateWaterfoxOrExplain({allowFallback: true});
-  console.log(bin);
+  const bin = locateWaterfoxOrExplain({allowFallback: true})
+  console.log(bin)
 
   // Cross-platform version (no exec by default)
-  console.log(getWaterfoxVersion(bin)); // e.g. "6.5.3" or null
+  console.log(getWaterfoxVersion(bin)) // e.g. "6.5.3" or null
 
   // Opt-in: allow executing the binary (Linux/other)
-  console.log(getWaterfoxVersion(bin, {allowExec: true}));
+  console.log(getWaterfoxVersion(bin, {allowExec: true}))
 } catch (e) {
-  console.error(String(e));
+  console.error(String(e))
   // Or print getInstallGuidance() explicitly
 }
+```
+
+**CommonJS:**
+
+```js
+const api = require('waterfox-location')
+const locateWaterfox = api.default || api
 ```
 
 **Via CLI:**
@@ -188,14 +201,16 @@ If this environment variable is set and points to an existing binary, it takes p
 
 ## Related projects
 
-* [brave-location](https://github.com/cezaraugusto/brave-location)
-* [chrome-location2](https://github.com/cezaraugusto/chrome-location2)
-* [edge-location](https://github.com/cezaraugusto/edge-location)
-* [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
-* [opera-location2](https://github.com/cezaraugusto/opera-location2)
-* [vivaldi-location2](https://github.com/cezaraugusto/vivaldi-location2)
-* [yandex-location](https://github.com/cezaraugusto/yandex-location)
-* [librewolf-location](https://github.com/cezaraugusto/librewolf-location)
+- [brave-location](https://github.com/cezaraugusto/brave-location)
+- [chrome-location2](https://github.com/cezaraugusto/chrome-location2)
+- [chromium-location](https://github.com/cezaraugusto/chromium-location)
+- [edge-location](https://github.com/cezaraugusto/edge-location)
+- [firefox-location2](https://github.com/cezaraugusto/firefox-location2)
+- [safari-location2](https://github.com/cezaraugusto/safari-location2)
+- [opera-location2](https://github.com/cezaraugusto/opera-location2)
+- [vivaldi-location2](https://github.com/cezaraugusto/vivaldi-location2)
+- [librewolf-location](https://github.com/cezaraugusto/librewolf-location)
+- [yandex-location](https://github.com/cezaraugusto/yandex-location)
 
 ## License
 
