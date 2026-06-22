@@ -62,7 +62,7 @@ export function getInstallGuidance (): string {
     '1) Install Waterfox from the official site',
     '   (or install via your system package manager where available)',
     '',
-    "Then re-run your command , we'll detect it automatically.",
+    "Then re-run your command, and we'll detect it automatically.",
     '',
     'Alternatively, set WATERFOX_BINARY=/path/to/waterfox and re-run.'
   ].join('\n')
