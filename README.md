@@ -143,7 +143,7 @@ console.log(waterfoxLocation())
 console.log(waterfoxLocation(true))
 // => first found among Stable/Current/Classic or null
 
-// Throw with a friendly guide when not found
+// Throw with an install guide when not found
 try {
   const bin = locateWaterfoxOrExplain({allowFallback: true})
   console.log(bin)
